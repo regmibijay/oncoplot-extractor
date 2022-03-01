@@ -1,3 +1,4 @@
 webcolors
 pandas
 pillow
+openpyxl
