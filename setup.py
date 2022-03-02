@@ -1,10 +1,14 @@
 import setuptools
+from oncoplot_versioneer import OncoplotVersioneer
 
 with open("README.md", "r") as f:
     long_description = f.read()
 
 with open("requirements.txt", "r") as f:
     requirements = f.read().splitlines()
+
+version = OncoplotVersioneer().VERSION
+
 setuptools.setup(
     name="oncoplot_extractor",
     version="1.0.1",
