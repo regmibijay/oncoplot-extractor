@@ -3,19 +3,35 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to OncoPlot Extractor's documentation!
-==============================================
+OncoPlot Extractor
+===================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+OncoPlot Extractor provides python3.x library to read standard oncoplots also known as mutation matrix. This library allows you to export the data extracted as pandas.DataFrame so the 
+data can be forth modified with toolkit offered by pandas_.  Two main modules that this package contains are `OncoPlotExtractor` and `OncoPlotCreator`.
 
-oncoplot_extractor
+.. _pandas: https://github.com/pandas-dev/pandas
 
 
-Indices and tables
-==================
+Modules
+=================
 
-* :ref:`genindex`
+oncoplot\_extractor.main module
+-------------------------------
+
+.. automodule:: oncoplot_extractor.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+oncoplot\_extractor.plotter module
+----------------------------------
+
+.. automodule:: oncoplot_extractor.plotter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+More Modules
+===================
+
 * :ref:`modindex`
-* :ref:`search`

@@ -1,9 +1,6 @@
 oncoplot\_extractor package
 ===========================
 
-Submodules
-----------
-
 oncoplot\_extractor.errors module
 ---------------------------------
 
