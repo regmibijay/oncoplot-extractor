@@ -11,7 +11,7 @@ version = OncoplotVersioneer().VERSION
 
 setuptools.setup(
     name="oncoplot_extractor",
-    version="1.0.1",
+    version=version,
     packages=setuptools.find_packages(),
     url="https://github.com/regmibijay/oncoplot-extractor",
     license="GNU (GPLv3)",
