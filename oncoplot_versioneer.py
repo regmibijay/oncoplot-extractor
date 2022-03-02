@@ -60,8 +60,8 @@ def main(argv):
     elif "[major]" in argv:
         version = versioneer.major_version()
     else:
-        version = versioneer().minor_version()
-    versioneer().write_version(version)
+        version = versioneer.minor_version()
+    versioneer.write_version(version)
 
 
 if __name__ == "__main__":
