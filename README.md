@@ -1,6 +1,7 @@
 # OncoPlot Extractor
 
 ![Build status](https://github.com/regmibijay/oncoplot-extractor/actions/workflows/main.yml/badge.svg)
+[![PyPI version](https://badge.fury.io/py/oncoplot-extractor.svg)](https://badge.fury.io/py/oncoplot-extractor)
 
 ## About
 
