@@ -1,4 +1,5 @@
 import setuptools
+
 from oncoplot_versioneer import OncoplotVersioneer
 
 with open("README.md", "r") as f:
@@ -7,7 +8,7 @@ with open("README.md", "r") as f:
 with open("requirements.txt", "r") as f:
     requirements = f.read().splitlines()
 
-version = OncoplotVersioneer().VERSION
+version = OncoplotVersioneer().meta_version()
 
 setuptools.setup(
     name="oncoplot_extractor",
