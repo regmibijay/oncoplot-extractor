@@ -1,8 +1,10 @@
 "Base file containing OncoPlotCreator"
 
+from typing import DefaultDict
 import openpyxl
 import pandas as pd
 from openpyxl.utils.dataframe import dataframe_to_rows
+from .errors import OncoPlotPlotterError
 
 
 class OncoPlotCreator:
@@ -74,6 +76,57 @@ class OncoPlotCreator:
                         top=thin, bottom=thin, right=thin, left=thin
                     )
             _c += 1
+
+    def gen_stack_plot(
+        self,
+        row_position: int = None,
+        column_position: int = 2,
+        filter_colors: list = [],
+    ) -> None:
+        """generates stacked barplot on top of base oncoplot
+        :param row_position: row where the base of stackplot lies [int] (default: None)
+        :param column_position: first column position [int] (default: 2)
+        :param filter_colors: list of colors to filter out [list]"""
+        col_pos = column_position
+        plot_data = DefaultDict()
+        thin = openpyxl.styles.Side(border_style="thin", color="ffffff")
+
+        for col in self.DF.columns:
+            counts = DefaultDict()
+            for val in self.DF[col]:
+                if not val in counts.keys():
+                    counts[val] = 1
+                else:
+                    counts[val] += 1
+            plot_data[col] = counts
+            if row_position is None:
+                row_pos = max(counts.items(), key=lambda k: k[1])[1] + 1
+            else:
+                row_pos = row_position
+            c = 0
+            for val in counts.keys():
+                if val in filter_colors:
+                    continue
+                for i in range(1, counts[val] + 1):
+                    try:
+                        cell = self.WORKSHEET.cell(row=row_pos, column=col_pos)
+                    except ValueError:
+                        raise OncoPlotPlotterError(
+                            f"Column or row position out of range col={col_pos}, row={row_pos}"
+                        )
+                    fgcolor = val.replace("#", "")
+                    print(fgcolor)
+                    cell.fill = openpyxl.styles.PatternFill(
+                        patternType="solid",
+                        fgColor=fgcolor,
+                    )
+                    cell.value = ""
+                    cell.border = openpyxl.styles.Border(
+                        top=thin, bottom=thin, right=thin, left=thin
+                    )
+                    row_pos -= 1
+                c += 1
+            col_pos += 1
 
     def save(self, filename: str) -> None:
         """saves generated workbook to file
