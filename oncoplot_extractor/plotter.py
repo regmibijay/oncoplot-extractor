@@ -7,7 +7,7 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 from .errors import OncoPlotPlotterError
 
 
-class OncoPlotCreator:
+class OncoplotCreator:
     """Creates an oncoplot from a dataframe
     containing respective rows and columns with hexcolor data
 
@@ -19,7 +19,7 @@ class OncoPlotCreator:
     :Example:
     .. code-block:: python
 
-        opc = OncoPlotCreator(df=my_df, cell_size=60, workbook=wb, offset=10)
+        opc = OncoplotCreator(df=my_df, cell_size=60, workbook=wb, offset=10)
         opc.gen_base_oncoplot()
         opc.save(filename="my_oncoplot.xlsx")
 
@@ -39,7 +39,7 @@ class OncoPlotCreator:
         workbook: openpyxl.Workbook = openpyxl.Workbook(),
         offset: int = 10,
     ) -> None:
-        """Initializes a OncoPlotCreator class, expects `df`, `cell_size`, `workbook`, `offset`
+        """Initializes a OncoplotCreator class, expects `df`, `cell_size`, `workbook`, `offset`
         which is row offset inserted at beginning of self.WS"""
         self.DF = df
         self.CELL_SIZE = cell_size
