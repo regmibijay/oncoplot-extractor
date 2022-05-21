@@ -107,7 +107,7 @@ class OncoplotExtractor:
 
     def extract(self) -> None:
         """Extracts oncoplot data from image.
-        expects class to have been initialized with a valid image file
+        Expects class to have been initialized with a valid image file
         """
         if self.CORNERS is not None:
             self.IMG = self._crop_image(self.IMG, self.CORNERS)
